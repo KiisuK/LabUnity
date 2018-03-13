@@ -12,18 +12,4 @@ public class HexCoordinatesDrawer : PropertyDrawer {
 		GUI.Label (position, coordinates.ToString ());
 	}
 
-	public static HexCoordinates FromPosition(Vector3 position){
-		float x = position.x / (HexMetrics.innerRadius * 2f);
-		float y = -x;
-
-		float offset = position.z / (HexMetrics.outerRadius * 3f);
-		x -= offset;
-		y -= offset;
-
-		int iX = Mathf.RoundToInt (x);
-		int iY = Mathf.RoundToInt (y);
-		int iZ = Mathf.RoundToInt (-x-y);
-
-		return new HexCoordinates (iX, iZ);
-	}
 }
